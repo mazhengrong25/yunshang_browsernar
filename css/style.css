@@ -38,7 +38,7 @@ input::-webkit-input-placeholder {
   --side-collect-bg: url("../img/index_collect_dark.png");
   --side-collect-hover: url("../img/index_collect_hover_dark.png");
   --side-border: rgba(42, 40, 54, 1);
-  --nav-parting: rgba(255, 255, 255, 0.1);
+  --nav-parting: rgba(32, 29, 44, 1);
   --hint-background: #fff;
 
   /* 公告列表 */
@@ -268,6 +268,13 @@ input::-webkit-input-placeholder {
   font-weight: 400;
 }
 .nav .nav_switch_item .nav_parting {
+  display: flex;
+}
+.nav .nav_switch_item .nav_parting .nav_parting_single {
+  height: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.nav .nav_switch_item .nav_parting .nav_parting_single.Brighten {
   height: 16px;
   border: 1px solid var(--nav-parting);
 }
