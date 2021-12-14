@@ -1,0 +1,254 @@
+<!--
+ * @Description: 首页
+ * @Author: mzr
+ * @Date: 2021-12-03 15:33:43
+ * @LastEditTime: 2021-12-14 10:20:32
+ * @LastEditors: mzr
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link rel="icon" href="./favicon.ico" />
+    <title>云上浏览器导航页</title>
+  </head>
+  <body>
+    <div id="main" class="light">
+      <!-- 导航栏 -->
+      <div class="slidebar">
+        <div class="slidebar_top">
+          <div class="slidebar_top_img"></div>
+          <div class="slidebar_top_text hide_part">
+            <p>云上航空</p>
+            <span>常用地址导航页</span>
+          </div>
+        </div>
+        <div class="slidebar_part">
+          <div class="part_list_item active">
+            <div class="hint">收藏</div>
+            <div class="part_list_item_img"></div>
+            <span class="hide_part" data-url="station">收藏</span>
+          </div>
+          <div class="part_type">部门</div>
+          <div class="part_list_item">
+            <div class="hint">畅游国际</div>
+            <div class="part_list_item_img"></div>
+            <span class="hide_part" data-url="demo1">畅游国际</span>
+          </div>
+          <div class="part_list_item">
+            <div class="hint">畅游国内</div>
+            <div class="part_list_item_img"></div>
+            <span class="hide_part" data-url="demo2">畅游国内</span>
+          </div>
+        </div>
+        <div class="slidebar_bottom">
+          <div class="part_list_item" onclick="showNotice()">
+            <div class="hint">公告通知</div>
+            <div class="part_list_item_img"></div>
+            <span class="hide_part" data-url="informList">公告通知</span>
+          </div>
+        </div>
+      </div>
+      <!-- 主体内容 -->
+      <div class="content">
+        <!-- 导航条 -->
+        <div class="nav">
+          <div class="nav_fold"></div>
+          <div class="nav_switch_item">
+            <!-- 天气 -->
+            <div class="nav_temperature_item">
+              <span class="temperature"></span>
+              <span class="city">获取定位中...</span>
+            </div>
+            <div class="nav_weather"></div>
+            <div class="nav_parting"></div>
+            <!-- 主题切换 -->
+            <div class="nav_switch_light active" data-type="light"></div>
+            <div class="nav_switch_dark" data-type="dark"></div>
+          </div>
+        </div>
+
+        <div class="content_inform">
+          <!-- 公告导航 -->
+          <div class="top">
+            <div class="top_warn_item">
+              <div class="top_warn_img"></div>
+              <p>公告:<span>公告内容公告内容公告内容公告内容</span></p>
+            </div>
+            <div class="top_find_detail">
+              <span>查看详情</span>
+              <div class="find_detail_img"></div>
+            </div>
+          </div>
+          <!-- 搜索栏 -->
+          <div class="index_search_item">
+            <div class="search_type">
+              <div class="site active">站内</div>
+              <div class="site">百度</div>
+            </div>
+            <input class="search_item_input" placeholder="输入关键词" />
+            <button class="search_item_button">搜索</button>
+          </div>
+        </div>
+
+        <!-- 页面内容 -->
+        <iframe
+          id="pageIframe"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          scrolling="no"
+        ></iframe>
+      </div>
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      // 页面初始值
+      $("#pageIframe").attr("src", "station.html");
+      // $(".content_inform").hide();
+
+      // 深浅主题切换
+      $(".nav_switch_item").click(function (e) {
+        $("#main").attr("class", e.target.dataset.type);
+        // 衍生到每个页面
+        $("#pageIframe")
+          .contents()
+          .find("#page_Iframe")
+          .attr("class", e.target.dataset.type);
+      });
+
+      // 折叠侧边栏
+      $(".nav_fold").click(function () {
+        $(".hide_part").toggle();
+        if ($(".slidebar_top_text.hide_part").is(":hidden")) {
+          $(".slidebar").addClass("min_nav");
+          $(".slidebar").removeClass("max_nav");
+        } else {
+          $(".slidebar").addClass("max_nav");
+          $(".slidebar").removeClass("min_nav");
+        }
+
+        $(".nav_fold").css(
+          "transform",
+          $(".slidebar_top_text.hide_part").is(":hidden")
+            ? "rotateY(180deg)"
+            : "rotateY(0)"
+        );
+      });
+
+      // 公告列表
+      function showNotice() {
+        $("#pageIframe").attr("src", "informList.html");
+        $(".content_inform").css("display", "none");
+      }
+
+      // iframe 分页面
+      $(".slidebar_part").click(function (e) {
+        $(".content_inform").show();
+        $("#pageIframe").attr("src", e.target.dataset.url + ".html");
+        $(".content_inform").css("display", "block");
+      });
+
+      // 站内baidu
+      $(".site").click(function () {
+        $(".search_type").find(".site").removeClass("active");
+        $(this).addClass("active");
+      });
+
+      // 侧边栏选中
+      $(".part_list_item").click(function (e) {
+        $(".slidebar").find(".part_list_item").removeClass("active");
+        $(this).addClass("active");
+      });
+
+      // 主题切换
+      $(".nav_switch_dark").click(function () {
+        $(".nav_switch_item").find(".nav_switch_light").removeClass("active");
+        $(this).addClass("active");
+      });
+      $(".nav_switch_light").click(function () {
+        $(".nav_switch_item").find(".nav_switch_dark").removeClass("active");
+        $(this).addClass("active");
+      });
+
+      // 获取地理位置
+      let adcode = ""; // 城市id
+      function thisLocation() {
+        fetch(
+          "https://restapi.amap.com/v3/ip?key=055ff5a3b46f93240264dd818d4401ba"
+        )
+          .then((res) => {
+            return res.json();
+          })
+          .then((res) => {
+            if (res.status === "1") {
+              adcode = res.adcode;
+              $(".city").text(res.city);
+              weather();
+              localStorage.setItem("cityMessage", JSON.stringify(res.city));
+            }
+          });
+      }
+
+      // 获取天气
+      function weather() {
+        fetch(
+          `https://restapi.amap.com/v3/weather/weatherInfo?key=055ff5a3b46f93240264dd818d4401ba&city=${adcode}&extensions=base`
+        )
+          .then((res) => {
+            return res.json();
+          })
+          .then((res) => {
+            if (res.status === "1") {
+              $(".temperature").text(res.lives[0].temperature + "℃");
+              $(".nav_weather").text(res.lives[0].weather);
+              localStorage.setItem(
+                "weatherMessage",
+                JSON.stringify(res.lives[0])
+              );
+            }
+          });
+      }
+
+      var currentDate = localStorage.getItem("thisDate");
+      if (currentDate) {
+        // 判断存储时间是否为今天
+        if (
+          new Date(currentDate).toDateString() !== new Date().toDateString()
+        ) {
+          // 不为今天
+          localStorage.setItem("thisDate", new Date());
+          thisLocation();
+        } else {
+          // 为今天
+          let temperatureMessage = localStorage.getItem("weatherMessage")
+            ? JSON.parse(localStorage.getItem("weatherMessage"))
+            : localStorage.getItem("weatherMessage");
+
+          $(".city").text(JSON.parse(localStorage.getItem("cityMessage")));
+          $(".temperature").text(temperatureMessage.temperature + "℃");
+          $(".nav_weather").text(temperatureMessage.weather);
+        }
+      } else {
+        localStorage.setItem("thisDate", new Date());
+        thisLocation();
+      }
+
+      console.log(
+        "当前时间",
+        currentDate,
+        new Date(currentDate).toDateString() !== new Date().toDateString(),
+        new Date().toDateString()
+      );
+
+      // 跳转到公告详情
+      $(".top_find_detail").click(function () {
+        $("#pageIframe").attr("src", "informDetail.html?id=111");
+        $(".content_inform").hide();
+      });
+    </script>
+  </body>
+</html>

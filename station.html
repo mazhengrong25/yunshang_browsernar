@@ -1,0 +1,132 @@
+<!--
+ * @Description: 收藏
+ * @Author: mzr
+ * @Date: 2021-12-06 15:27:11
+ * @LastEditTime: 2021-12-14 17:51:49
+ * @LastEditors: mzr
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="css/station.css" rel="stylesheet" />
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/noty/3.1.4/noty.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="page_Iframe" class="light">
+      <!-- <div class="not_data">暂无收藏内容</div> -->
+      <div class="box_diff">开发工具</div>
+      <div class="index_inform_list">
+        <!-- 内网 -->
+        <div class="inform_list_item">
+          <div class="list_item_top">
+            <p>标题</p>
+          </div>
+          <div class="list_item_center">
+            内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+          </div>
+          <div class="list_item_bottom">
+            <p>网络环境:<span>内网</span></p>
+            <div class="item_bottom_img"></div>
+          </div>
+        </div>
+        <!-- 外网 -->
+        <div class="inform_list_item">
+          <div class="list_item_top">
+            <p>标题</p>
+          </div>
+          <div class="list_item_center">
+            内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+          </div>
+          <div class="list_item_bottom">
+            <p>网络环境:<span class="outer">外网</span></p>
+            <div class="item_bottom_img"></div>
+          </div>
+        </div>
+        <!-- 测试版 -->
+        <div class="inform_list_item">
+          <div class="list_item_sign"></div>
+          <div class="list_item_top">
+            <p>标题</p>
+          </div>
+          <div class="list_item_center">
+            内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+          </div>
+          <div class="list_item_bottom">
+            <p>网络环境:<span>内网</span></p>
+            <div class="item_bottom_img"></div>
+          </div>
+        </div>
+      </div>
+      <div class="box_diff">内部资源</div>
+      <div class="index_inform_list">
+        <!-- 测试版 -->
+        <div class="inform_list_item">
+          <div class="list_item_sign"></div>
+          <div class="list_item_top">
+            <p>标题</p>
+          </div>
+          <div class="list_item_center">
+            内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+          </div>
+          <div class="list_item_bottom">
+            <p>网络环境:<span>内网</span></p>
+            <div class="item_bottom_img"></div>
+          </div>
+        </div>
+        <!-- 收藏 -->
+        <div class="inform_list_item">
+          <div class="list_item_top">
+            <p>标题</p>
+          </div>
+          <div class="list_item_center">
+            内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+          </div>
+          <div class="list_item_bottom">
+            <p>网络环境:<span>内网</span></p>
+            <div class="item_bottom_img collect"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/noty/3.1.4/noty.js"></script>
+    <script>
+      // 内网外网
+      $(".outer").css("color", "#21D889");
+
+      // 收藏
+      $(".item_bottom_img").click(function () {
+        $(this).toggleClass("collect");
+        console.log();
+        new Noty({
+          type: "info",
+          theme: "light",
+          layout: "center",
+          timeout: 300,
+        })
+          .show()
+          .setText(
+            $(this)[0].className.indexOf("collect") !== -1
+              ? "收藏成功"
+              : "取消收藏"
+          );
+      });
+
+      // 暂无内容
+      $(function () {
+        if ($(".index_inform_list .inform_list_item").length > 0) {
+          $(".not_data").hide();
+        } else {
+          $(".not_data").show();
+        }
+      });
+    </script>
+  </body>
+</html>

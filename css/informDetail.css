@@ -1,0 +1,50 @@
+@import url(../css/style.css);
+#page_Iframe {
+  background: var(--informDetail-bg);
+  padding: 23px;
+  margin: 19px 24px;
+  height: 845px;
+}
+.content_return {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+}
+.content_return .content_return_img {
+  width: 8px;
+  height: 13px;
+  background: var(--informDetail-return-img);
+  background-size: cover;
+  margin-right: 5px;
+}
+.content_return p {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--informDetail-return-text);
+}
+.content_detail {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.content_detail p {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--side-title-font);
+}
+.content_detail span {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--side-60-text);
+  margin: 10px 0px 40px;
+}
+.content_detail .content_div {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--side-title-font);
+  text-indent: 2em;
+  text-align: left;
+  line-height: 22px;
+  padding: 0px 65px;
+}

@@ -1,0 +1,9 @@
+@import url(../css/style.css);
+.not_data {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--side-70-text);
+  letter-spacing: 2px;
+  text-align: center;
+  margin-top: 150px;
+}

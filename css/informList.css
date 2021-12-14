@@ -1,0 +1,183 @@
+@import url("/css/style.css");
+#page_Iframe {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 48px 0px;
+}
+/* 公告查询栏 */
+.index_search_item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 40px;
+}
+.index_search_item p {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--inform-title-text);
+}
+.index_search_item .search_item_input {
+  width: 400px;
+  height: 40px;
+  background: #ffffff;
+  border: 1px solid #d2d0d6;
+  border-radius: 6px;
+  margin: 0px 8px 0px 16px;
+  padding: 0px 16px;
+  font-size: 13px;
+  font-weight: 400;
+  color: #201d2c;
+}
+.index_search_item .search_item_button {
+  width: 112px;
+  height: 40px;
+  background: #3760ec;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  border-radius: 7px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
+}
+/* 公告通知 */
+.index_inform_item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 24px;
+}
+.index_inform_item .inform_img {
+  width: 13px;
+  height: 13px;
+  background: url(../img/inform_title_logo.png) no-repeat center center;
+  background-size: cover;
+  margin-right: 8px;
+}
+.index_inform_item p {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--side-70-text);
+}
+/* 公告列表 */
+@media screen and (min-width: 1400px) {
+  .index_inform_list {
+    grid-template-columns: 1fr 1fr 1fr !important;
+  }
+}
+.index_inform_list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 22px;
+}
+.index_inform_list .inform_list_item {
+  height: 120px;
+  background: var(--side-bg);
+  border-radius: 20px;
+  padding: 22px 24px 19px 24px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+.index_inform_list .inform_list_item:hover {
+  background: #3760ec;
+  box-shadow: 0px 6px 6px rgba(8, 22, 70, 0.2);
+  transition: all 0.3s;
+  transform: translateY(-10px);
+}
+.index_inform_list .inform_list_item:hover .list_item_top .item_top_title p,
+.index_inform_list .inform_list_item:hover .list_item_center {
+  color: #fff;
+}
+.index_inform_list
+  .inform_list_item:hover
+  .list_item_top
+  .item_top_title
+  .read_status.have_read {
+  color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.1);
+}
+.index_inform_list .inform_list_item:hover .list_item_bottom span {
+  background-color: #fff;
+}
+.index_inform_list .inform_list_item:hover .list_item_top span {
+  color: rgba(255, 255, 255, 0.8);
+}
+.index_inform_list .inform_list_item .list_item_top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 13px;
+}
+.index_inform_list .inform_list_item .list_item_top .item_top_title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.index_inform_list .inform_list_item .list_item_top .item_top_title p {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--side-title-font);
+}
+.index_inform_list
+  .inform_list_item
+  .list_item_top
+  .item_top_title
+  .read_status {
+  font-size: 10px;
+  font-weight: 400;
+  color: #ffffff;
+  width: 30px;
+  height: 16px;
+  background: #f46b7a;
+  border-radius: 2px;
+  text-align: center;
+  margin-left: 8px;
+}
+.index_inform_list
+  .inform_list_item
+  .list_item_top
+  .item_top_title
+  .read_status.have_read {
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--side-40-text);
+  width: 30px;
+  height: 16px;
+  background: var(--have-read-bg);
+  border-radius: 2px;
+  text-align: center;
+  margin-left: 8px;
+}
+.index_inform_list .inform_list_item .list_item_top span {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--side-60-text);
+}
+.index_inform_list .inform_list_item .list_item_center {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--inform-item-text);
+  display: -webkit-box; /**对象作为伸缩盒子模型展示**/
+  -webkit-box-orient: vertical; /**设置或检索伸缩盒子对象的子元素的排列方式**/
+  -webkit-line-clamp: 2; /**显示的行数**/
+  overflow: hidden; /**隐藏超出的内容**/
+}
+.index_inform_list .inform_list_item .list_item_bottom {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin-top: auto;
+}
+.index_inform_list .inform_list_item .list_item_bottom span {
+  width: 4px;
+  height: 4px;
+  background: var(--side-title-font);
+  border-radius: 50%;
+}
+.index_inform_list .inform_list_item .list_item_bottom span:nth-child(2) {
+  margin: 0px 3px;
+}

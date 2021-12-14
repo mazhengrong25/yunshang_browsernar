@@ -1,0 +1,96 @@
+<!--
+ * @Description: 公告列表
+ * @Author: mzr
+ * @Date: 2021-12-06 15:30:40
+ * @LastEditTime: 2021-12-14 09:45:21
+ * @LastEditors: mzr
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>公告列表</title>
+    <link href="css/informList.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="page_Iframe" class="light">
+      <!-- 公告查询栏 -->
+      <div class="index_search_item">
+        <p>公告查询</p>
+        <input class="search_item_input" placeholder="输入关键词" />
+        <button class="search_item_button">搜索</button>
+      </div>
+      <!-- 公告通知 -->
+      <div class="index_inform_item">
+        <div class="inform_img"></div>
+        <p>公告通知</p>
+      </div>
+      <!-- 公告列表 -->
+      <div class="index_inform_list">
+        <!-- 未读状态 -->
+        <div class="inform_list_item">
+          <div class="list_item_top">
+            <div class="item_top_title">
+              <p>公告标题</p>
+              <div class="read_status">未读</div>
+            </div>
+            <span>2021.11.23</span>
+          </div>
+          <div class="list_item_center">
+            内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+          </div>
+          <div class="list_item_bottom">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <!-- 已读状态 -->
+        <div class="inform_list_item">
+          <div class="list_item_top">
+            <div class="item_top_title">
+              <p>公告标题</p>
+              <div class="read_status have_read">已读</div>
+            </div>
+            <span>2021.11.23</span>
+          </div>
+          <div class="list_item_center">
+            内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+          </div>
+          <div class="list_item_bottom">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div class="inform_list_item">
+          <div class="list_item_top">
+            <div class="item_top_title">
+              <p>公告标题</p>
+              <div class="read_status have_read">已读</div>
+            </div>
+            <span>2021.11.23</span>
+          </div>
+          <div class="list_item_center">
+            内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+          </div>
+          <div class="list_item_bottom">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      // 跳转详情
+      $(".inform_list_item").click(function () {
+        window.location.href = "informDetail.html";
+      });
+    </script>
+  </body>
+</html>
