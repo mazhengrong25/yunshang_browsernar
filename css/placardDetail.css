@@ -1,0 +1,52 @@
+#placardDetail {
+  /* background: var(--informDetail-bg); */
+  /* background-color: #fff; */
+  padding: 23px;
+  height: 845px;
+}
+.content_return {
+  cursor: pointer;
+}
+.content_return .content_return_img {
+  width: 8px;
+  height: 13px;
+  /* background: var(--informDetail-return-img); */
+  background: url(../img/informDetail_return.png);
+  background-size: cover;
+  margin-right: 5px;
+  float: left;
+}
+.content_return p {
+  font-size: 13px;
+  font-weight: 400;
+  /* color: var(--informDetail-return-text); */
+  color: rgba(55, 96, 236, 0.7);
+}
+.content_detail {
+  text-align: center;
+}
+.content_detail p {
+  font-size: 18px;
+  font-weight: bold;
+  /* color: var(--side-title-font); */
+  color: #201d2c;
+}
+.content_detail span {
+  font-size: 12px;
+  font-weight: 400;
+  /* color: var(--side-60-text); */
+  color: rgba(32, 29, 44, 0.6);
+  margin: 10px 0px 40px;
+  display: inline-block;
+}
+.content_detail .content_div {
+  font-size: 14px;
+  font-weight: 400;
+  color: #201d2c;
+  /* color: var(--side-title-font); */
+  text-indent: 2em;
+  text-align: left;
+  line-height: 22px;
+  padding: 0px 65px;
+  margin: 20px 0px;
+}

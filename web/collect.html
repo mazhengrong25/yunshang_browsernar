@@ -1,0 +1,235 @@
+<!--
+ * @Description: 收藏
+ * @Author: mzr
+ * @Date: 2022-01-10 10:24:42
+ * @LastEditTime: 2022-03-09 11:48:25
+ * @LastEditors: mzr
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>收藏</title>
+    <link href="/css/collect.css" rel="stylesheet" />
+    <link href="/dist/css/unsemantic.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="collect">
+      <!-- <div class="not_data">暂无收藏内容</div> -->
+      <div class="x_container">
+        <!-- 公告导航 -->
+        <div class="top">
+          <div class="top_warn_item">
+            <div class="top_warn_img"></div>
+          </div>
+          <p>公告:<span>公告内容公告内容公告内容公告内容</span></p>
+          <div class="top_find_detail">
+            <span>查看详情</span>
+            <div class="find_detail_img"></div>
+          </div>
+        </div>
+        <!-- 搜索栏 -->
+        <div class="index_search_item">
+          <div class="search_type">
+            <div class="site active">站内</div>
+            <div class="site">百度</div>
+          </div>
+          <div class="search_item_input">
+            <input class="input" placeholder="输入关键词" type="text" />
+          </div>
+          <button class="search_item_button" type="submit">搜索</button>
+        </div>
+      </div>
+      <div class="box_diff">开发工具</div>
+      <div class="index_inform_list">
+        <!-- 下拉框 -->
+        <div class="inform_list_item grid-33 mobile-grid-50">
+          <div class="list_item_top">
+            标题
+            <div class="divInput">
+              <div class="input" id="inputTag">
+                <div class="input_img" id="selectImg"></div>
+              </div>
+              <div id="selectItem" class="list">
+                <ul>
+                  <li data-value="1">员工工作台</li>
+                  <li data-value="2">公告列表</li>
+                  <li data-value="3">财务</li>
+                  <li data-value="4">商家中心</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="list_item_center">
+            内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+          </div>
+          <div class="list_item_bottom">
+            <div class="list_item_bottom_text">
+              网络环境：
+              <p>内网</p>
+            </div>
+            <div class="item_bottom_img"></div>
+          </div>
+        </div>
+        <!-- 外网 -->
+        <div class="inform_list_item grid-33 mobile-grid-50">
+          <div class="list_item_top">
+            标题
+          </div>
+          <div class="list_item_center">
+            内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+          </div>
+          <div class="list_item_bottom">
+            <div class="list_item_bottom_text">
+              网络环境：
+              <p class="outer">外网</p>
+            </div>
+            <div class="item_bottom_img"></div>
+          </div>
+        </div>
+        <!-- 测试版 -->
+        <div class="inform_list_item grid-33 mobile-grid-50">
+          <div class="list_item_top">
+            标题
+          </div>
+          <div class="list_item_center">
+            内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+          </div>
+          <div class="list_item_bottom">
+            <div class="list_item_bottom_text">
+              网络环境：
+              <p>内网</p>
+            </div>
+            <div class="item_bottom_img"></div>
+          </div>
+        </div>
+      </div>
+      <div class="box_diff">内部资源</div>
+      <div class="index_inform_list">
+        <!-- 测试版 -->
+        <div class="inform_list_item grid-33 mobile-grid-50">
+          <div class="list_item_sign"></div>
+          <div class="list_item_top">
+            标题
+          </div>
+          <div class="list_item_center">
+            内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+          </div>
+          <div class="list_item_bottom">
+            <div class="list_item_bottom_text">
+              网络环境：
+              <p>内网</p>
+            </div>
+            <div class="item_bottom_img"></div>
+          </div>
+        </div>
+        <!-- 收藏 -->
+        <div class="inform_list_item grid-33 mobile-grid-50">
+          <div class="list_item_top">
+            标题
+          </div>
+          <div class="list_item_center">
+            内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+          </div>
+          <div class="list_item_bottom">
+            <div class="list_item_bottom_text">
+              网络环境：
+              <p>内网</p>
+            </div>
+            <div class="item_bottom_img selected"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery-noty/2.4.1/jquery.noty.js"></script>
+    <script src=https://cdn.staticfile.org/jquery-noty/2.4.1/jquery.noty.min.js></script>
+    <script src="https://cdn.staticfile.org/jquery-noty/2.4.1/layouts/center.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery-noty/2.4.1/themes/default.min.js"></script>
+
+    <script>
+
+      // 查看详情
+      $(".top_find_detail").click(function() {
+        $("#collect").load("placard.html")
+      })
+      // 内网外网
+      $(".outer").css("color", "#21D889");
+
+      // 收藏
+      $(".item_bottom_img").click(function () {
+        $(this).toggleClass("selected");
+      });
+
+       // 站内baidu
+       $(".site").click(function () {
+        $(".search_type").find(".site").removeClass("active");
+        $(this).addClass("active");
+      });
+
+      // 暂无内容
+      $(function () {
+        if ($(".index_inform_list .inform_list_item").length > 0) {
+          $(".not_data").hide();
+        } else {
+          $(".not_data").show();
+        }
+      });
+
+      // 选择器
+      var data = [{name:'员工工作台',value:'1'},{name:'公告列表',value:'2'},{name:'财务',value:'3'},{name:'商家中心',value:'4'}]
+      var content = document.getElementById('inputTag');
+      var selectImg = document.getElementById('selectImg');
+      var selectItem = document.getElementById('selectItem');
+
+      var ul = document.createElement('ul');
+
+      $(document).ready(function() {
+        $("#inputTag").text("员工工作台")
+        selectItem.style.display = 'none'
+      })
+      for(var i = 0; i < data.length; i++){
+          var li = document.createElement('li');
+          li.setAttribute('data-value',data[i].value);
+          li.innerText = data[i].name;
+          ul.appendChild(li);
+      }
+      
+      // 点击下拉箭头
+      selectImg.onclick = function () {
+          if(selectItem.style.display === 'none' || selectItem.style.display !== ''){
+              selectItem.style.display = 'block';
+          }else{
+              selectItem.style.display = 'none';
+          }
+
+      }
+
+      inputTag.onclick = function () {
+          if(selectItem.style.display === 'none' || selectItem.style.display !== ''){
+              selectItem.style.display = 'block';
+          }else{
+              selectItem.style.display = 'none';
+          }
+      }
+
+      var list = selectItem.getElementsByTagName('li');
+      for(var i = 0; i < list.length; i++){
+          list[i].onclick = function () {
+            inputTag.innerText = this.innerHTML;
+              selectItem.style.display = 'none';
+          } 
+
+      }
+
+      // 下拉框点击  阻止冒泡
+      $("#selectItem li").click(function(event) {
+        event.stopPropagation();
+
+      })
+
+    </script>
+  </body>
+</html>

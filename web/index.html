@@ -1,59 +1,313 @@
-﻿<!DOCTYPE html>
+﻿<!--
+ * @Description: 
+ * @Author: mzr
+ * @Date: 2021-12-22 10:07:23
+ * @LastEditTime: 2022-03-09 11:45:58
+ * @LastEditors: mzr
+-->
+<!DOCTYPE html>
 <html>
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title></title>
-	<link href="/dist/css/unsemantic.min.css" rel="stylesheet" />
-	<link href="/dist/css/bookmark.css" rel="stylesheet" />
-	<style>
-	</style>
-</head>
-<body>
-	<div class="x-wapper x-pick">
-		<!-- x-pick 为收缩效果 x-pickhide为收缩时隐藏 -->
-		<div class="x-left">
-			<div class="x-slidebar-top grid-box">
-				<div class="grid-box" style="width:70px;float:left">
-					<img src="/dist/image/yunshang_logo.png" width="70" />
-				</div>
-				<div class="grid-box x-pickhide" style="float:left;margin:2px 0 0 10px">
-					<p>云上航空</p>
-					<span>常用地址导航页</span>
-				</div>
-			</div>
-			<div class="x-slidebar-part">
-				11
-			</div>
-			<div class="x-slidebar-bottom">
-				122
-			</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>云上浏览器导航页</title>
+    <link rel="icon" href="./favicon.ico" />
+    <link href="/dist/css/unsemantic.min.css" rel="stylesheet" />
+    <link
+      href="/dist/css/bookmark.css"
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+    />
+  </head>
+  <body>
+    <div class="x_wapper">
+      <div class="x_left">
+        <div class="x_slidebar_top">
+          <div class="slidebar_top_img"></div>
+          <div class="x_pickhide x_slidebar_title">
+            <p>云上航空</p>
+            <span>常用地址导航页</span>
+          </div>
+        </div>
+        <div class="x_slidebar_part">
+          <div class="part_list_item active" id="collectPage">
+            <div class="hint">收藏</div>
+            <div class="part_list_item_img"></div>
+            <span class="x_pickhide"><a target="collect.html">收藏</a></span>
+          </div>
+          <div class="part_type">部门</div>
+          <div class="part_list_item">
+            <div class="hint">畅游国际</div>
+            <div class="part_list_item_img"></div>
+            <span class="x_pickhide"><a>畅游国际</a></span>
+          </div>
+          <div class="part_list_item" id="placardDetailPage">
+            <div class="hint">公告详情</div>
+            <div class="part_list_item_img"></div>
+            <span class="x_pickhide"
+              ><a target="placardDetail.html">公告详情</a></span
+            >
+          </div>
+        </div>
+        <div class="x_slidebar_bottom">
+          <div class="part_list_item" id="placardPage">
+            <div class="hint">公告通知</div>
+            <div class="part_list_item_img"></div>
+            <span class="x_pickhide"
+              ><a target="placard.html">公告通知</a></span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="x_right">
+        <!-- 导航条 -->
+        <div class="x_header">
+          <div class="x_header_fold"></div>
+          <div class="nav_switch_item">
+            <div class="nav_temperature_item">
+              <span class="temperature"></span>
+              <span class="city">获取定位中...</span>
+              <span class="nav_weather"></span>
+              <!-- <div class="nav_parting"></div>
+              <div class="nav_switch">
+                <button class="nav_switch_light"></button>
+                <button class="nav_switch_dark"></button>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <!-- 嵌入页面 -->
+        <div id="content"></div>
+      </div>
+    </div>
 
-		</div>
-		<div class="x-right">
-			<div class="x-header">
+    <script src="https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/babel-core/4.0.1/browser.min.js"></script>
+    <script src="https://cdn.staticfile.org/babel-polyfill/7.12.1/polyfill.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="https://cdn.staticfile.org/json2/20160511/json2.min.js"></script>
+    <!-- <script src="https://cdn.staticfile.org/flexibility/0.2.0/flexibility.js"></script>  移动端适应 -->
+    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/smoothState.js/0.7.2/jquery.smoothState.min.js"></script> 只兼容到ie10 -->
 
-			</div>
-			<div class="x-container grid-container">
-				<div class="grid-100">
-					公告:公告内容公告内容公告内容公告内容
-				</div>
-				<div class="grid-100">
-					<div class="grid-60 push-20">
-						111
-					</div>
-				</div>
-				<div class="grid-100">
-					<div class="grid-60 push-20">
-						<span class="x-icon" style="color:aqua">&#xe730;</span>
-						<input class="search_item_input" placeholder="输入关键词">
-					</div>
-				</div>
-			</div>
+    <script type="text/babel">
+      $(".x_header_fold").click(function () {
+        $(".x_pickhide").toggle();
+        if ($(".x_slidebar_title.x_pickhide").is(":hidden")) {
+          $(".x_left").addClass("min_nav");
+          $(".x_left").removeClass("max_nav");
+          $(".x_right").addClass("max_header");
+          $(".x_right").removeClass("min_header");
+        } else {
+          $(".x_left").addClass("max_nav");
+          $(".x_left").removeClass("min_nav");
+          $(".x_right").addClass("min_header");
+          $(".x_right").removeClass("max_header");
+        }
 
-		</div>
-	</div>
-	<!-- x-wapper -->
+        // transform 兼容到ie10+
+        $(".x_pickhide").css(
+          "transform",
+          $(".x_slidebar_title.x_pickhide").is(":hidden")
+            ? "rotateY(180deg)"
+            : "rotateY(0)"
+        );
+      });
 
-</body>
+      // 页面切换
+      $(document).ready(function () {
+        $("#content").load("collect.html");
+        $("#collectPage").click(function () {
+          $("#content").load("collect.html");
+        });
+      });
+
+      $("#placardPage").click(function () {
+        $("#content").load("placard.html");
+      });
+
+      $("#placardDetailPage").click(function () {
+        $("#content").load("placardDetail.html");
+      });
+
+      $(document).ready(function () {
+        $.get("collect.html", function (data) {
+          $("#content").html(data);
+        });
+      });
+
+      // input处理
+      function isPlaceholder() {
+        var input = document.createElement("input");
+        return "placeholder" in input;
+      }
+
+      $(".search_item_input").click(function () {
+        isPlaceholder();
+        if (isPlaceholder()) {
+          // console.log("placeholder支持");
+        } else {
+          // console.log("placeholder不支持");
+          $("[placeholder]")
+            .each(function () {
+              var _this = $(this);
+              var left = $(this).css("padding-left");
+              _this
+                .parent()
+                .append(
+                  '<span class="placeholder" data-type="placeholder" style="left: ' +
+                    left +
+                    ' ">' +
+                    _this.attr("placeholder") +
+                    "</span>"
+                );
+
+              if (_this.val() !== "") {
+                _this.parent().find("span.placeholder").hide();
+              } else {
+                _this.parent().find("span.placeholder").show();
+              }
+            })
+            .on("focus", function () {
+              $(this).parent().find("span.placeholder").hide();
+            })
+            .on("blur", function () {
+              var _this = $(this);
+              if (_this.val() !== "") {
+                _this.parent().find("span.placeholder").hide();
+              } else {
+                _this.parent().find("span.placeholder").show();
+              }
+            });
+          $("span.placeholder").on("click", function () {
+            $(this).hide();
+            $(this).siblings("[placeholder]").trigger("click");
+            $(this).siblings("[placeholder]").trigger("focus");
+          });
+        }
+      });
+
+      // 侧边栏选中
+      $(".part_list_item").click(function (e) {
+        $(".x_left").find(".part_list_item").removeClass("active");
+        $(this).addClass("active");
+      });
+
+      // cookie 存储数据  + ";expires=" + oDate.toGMTString()
+      // userData ie8+ 不支持
+
+      // function setCookie(key, value, t) {
+      //   var oDate = new Date();
+      //   oDate.setDate(oDate.getDate() + t);
+      //   document.cookie = key + "=" + value;
+      // }
+
+      // function getCookie(key) {
+      //   var arr1 = document.cookie.split(";");
+      //   for (var i = 0; i < arr1.length; i++) {
+      //     var arr2 = arr1[i].split("=");
+      //     if (arr2[0] == key) {
+      //       return decodeURI(arr2[1]);
+      //     }
+      //   }
+      // }
+
+      // function removeCookie(key) {
+      //   setCookie(key, "", -1);
+      // }
+
+      // // 获取地理位置;
+      // var adcode = ""; // 城市id
+      // function thisLocation() {
+      //   window
+      //     .fetch(
+      //       "https://restapi.amap.com/v3/ip?key=055ff5a3b46f93240264dd818d4401ba"
+      //     )
+      //     .then(function (res) {
+      //       return res.json();
+      //     })
+      //     .then(function (res) {
+      //       if (res.status === "1") {
+      //         adcode = res.adcode;
+      //         $(".city").text(res.city);
+      //         weather();
+      //         if (window.localStorage) {
+      //           localStorage.setItem("cityMessage", JSON.stringify(res.city));
+      //         } else {
+      //           setCookie("cityMessage", JSON.stringify(res.city));
+      //         }
+      //       }
+      //     });
+      // }
+
+      // // 获取天气;
+      // function weather() {
+      //   window
+      //     .fetch(
+      //       `https://restapi.amap.com/v3/weather/weatherInfo?key=055ff5a3b46f93240264dd818d4401ba&city=${adcode}&extensions=base`
+      //     )
+      //     .then(function (res) {
+      //       return res.json();
+      //     })
+      //     .then(function (res) {
+      //       if (res.status === "1") {
+      //         $(".temperature").text(res.lives[0].temperature + "℃");
+      //         $(".nav_weather").text(res.lives[0].weather);
+      //         if (window.localStorage) {
+      //           localStorage.setItem(
+      //             "weatherMessage",
+      //             JSON.stringify(res.lives[0])
+      //           );
+      //         } else {
+      //           setCookie("weatherMessage", JSON.stringify(res.lives[0]));
+      //         }
+      //       }
+      //     });
+      // }
+
+      // if (window.localStorage) {
+      //   var currentDate = localStorage.getItem("thisDate");
+      // } else {
+      //   var currentDate = getCookie("thisDate");
+      // }
+      // if (currentDate) {
+      //   // 判断存储时间是否为今天
+      //   if (
+      //     new Date(currentDate).toDateString() !== new Date().toDateString()
+      //   ) {
+      //     // 不为今天
+      //     if (window.localStorage) {
+      //       localStorage.setItem("thisDate", new Date());
+      //     } else {
+      //       getCookie("thisDate", new Date());
+      //     }
+      //     thisLocation();
+      //   } else {
+      //     // 为今天
+      //     if (window.localStorage) {
+      //       var temperatureMessage = JSON.parse(
+      //         localStorage.getItem("weatherMessage")
+      //       );
+      //     } else {
+      //       var temperatureMessage = setCookie("weatherMessage");
+      //     }
+      //     if (window.localStorage) {
+      //       $(".city").text(JSON.parse(localStorage.getItem("cityMessage")));
+      //     } else {
+      //       $(".city").text(JSON.parse(getCookie("cityMessage")));
+      //     }
+      //     $(".temperature").text(temperatureMessage.temperature + "℃");
+      //     $(".nav_weather").text(temperatureMessage.weather);
+      //   }
+      // } else {
+      //   if (window.localStorage) {
+      //     localStorage.setItem("thisDate", new Date());
+      //   } else {
+      //     getCookie("thisDate", new Date());
+      //   }
+      //   thisLocation();
+      // }
+    </script>
+  </body>
 </html>
